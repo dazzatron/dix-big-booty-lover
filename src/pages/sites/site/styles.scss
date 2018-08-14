@@ -3,16 +3,14 @@
     display: grid;
     min-height: 100vh;
     overflow: hidden;
-    // grid-template-rows: 1fr 100px;
     border-bottom: 40px solid #fff;
-    // border-top: 20px solid #fff;
 
     @media (min-width: 800px) {
         border: none;
     }
 
     > :first-child {
-        padding: 10vw 5vw;
+        padding: 10vh 5vw;
         align-self: center;
         transform: skewY(-5deg);
     }

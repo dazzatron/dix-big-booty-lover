@@ -7,7 +7,7 @@
     .site {
       border: none; } }
   .site > :first-child {
-    padding: 10vw 5vw;
+    padding: 10vh 5vw;
     align-self: center;
     transform: skewY(-5deg); }
   .site > :last-child {
