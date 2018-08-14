@@ -126,7 +126,7 @@ export default [{
     {
         id: 4,
         "name": "Ford HelloWall",
-        // "url": "https://vimeo.com/108418066",
+        //  "url": "https://vimeo.com/108418066",
         "text": "A website that displays content from Social Media in an aesthetic form to customers in the Dealer waiting area.",
         "path": "ford-hellowall",
         "background": "#0b1d67",

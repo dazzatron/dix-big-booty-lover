@@ -1,48 +1,44 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './styles.css';
 import SiteImages from '../site-images/';
 import Techs from '../techs/';
 
-class Site extends Component {
+const Site = (props) => {
 
-    render() {
+    const { site } = props;
 
-        const { site } = this.props;
+    return (
 
-        return (
+        <section className='site' style={{ borderColor: site.background }}>
 
-            <section className='site' style={{ borderColor: site.background }}>
+            <article>
 
-                <article>
+                <h1>{site.name}</h1>
+                <h2>{site.subTitle}</h2>
 
-                    <h1>{site.name}</h1>
-                    <h2>{site.subTitle}</h2>
+                {site.techs &&
+                    <Techs techs={site.techs} background={site.background} />
+                }
 
-                    {site.techs &&
-                        <Techs techs={site.techs} background={site.background} />
-                    }
+                <p>{site.text}</p>
 
-                    <p>{site.text}</p>
+                {site.url &&
+                    <a target='_blank' href={site.url}>{site.url}</a>
+                }
 
-                    {site.url &&
-                        <a target='_blank' href={site.url}>{site.url}</a>
-                    }
+            </article>
 
-                </article>
+            <article style={{ backgroundColor: site.background }}>
 
-                <article style={{ backgroundColor: site.background }}>
+                {site.images && site.images.length ?
+                    <SiteImages images={site.images} alt={site.name} />
+                    : undefined}
 
-                    {site.images && site.images.length ?
-                        <SiteImages images={site.images} alt={site.name} />
-                    : undefined }
+            </article>
 
-                </article>
+        </ section>
 
-            </ section>
-
-        );
-
-    }
+    );
 
 }
 

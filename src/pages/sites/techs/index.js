@@ -1,26 +1,26 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './styles.css';
 
-class Techs extends Component {
+// todo: proptypes
 
-    render() {
+const Techs = (props) => {
 
-        return (
+    const { background, techs } = props;
 
-            <ul className='site-techs'>
+    return (
 
-                {this.props.techs.map((tech, i) =>
-                    <li key={i}>
-                        {tech.label}
-                        <span style={{ width: tech.percentage + '%', background: this.props.background }} className='site-tech-bar' />
-                    </li>
-                )}
+        <ul className='site-techs'>
 
-            </ul>
+            {techs.map((tech, i) =>
+                <li key={i}>
+                    {tech.label}
+                    <span style={{ width: tech.percentage + '%', background: background }} className='site-tech-bar' />
+                </li>
+            )}
 
-        )
+        </ul>
 
-    }
+    )
 
 }
 
