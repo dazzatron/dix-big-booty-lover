@@ -17,10 +17,13 @@
             color:#fff;
         }
 
-        // img {
-        //     height: 100%;
-        //     width: 100%; 
-        // }
+        >:nth-child(2) {
+            color:#fff;
+            position: absolute;
+            top:0;
+            right:0;
+            font-size: 12px;
+        }
 
         &.active {
             background: #666;

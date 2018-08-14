@@ -11,6 +11,12 @@
     .sites-options button .fas {
       font-size: 25px;
       color: #fff; }
+    .sites-options button > :nth-child(2) {
+      color: #fff;
+      position: absolute;
+      top: 0;
+      right: 0;
+      font-size: 12px; }
     .sites-options button.active {
       background: #666; }
 

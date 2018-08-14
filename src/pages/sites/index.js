@@ -91,7 +91,13 @@ class Sites extends Component {
                     </button>
 
                     <button className={showSiteFilter ? 'active' : ''} onClick={(e) => this.handleToggleSiteFilterMenu(e)} title='filter sites'>
+
                         <span className={ showSiteFilter ? 'fas fa-times' : 'fas fa-filter' } />
+
+                        { !showSiteFilter && siteFilters.length ?
+                            <span>{siteFilters.length}</span>
+                        : undefined }
+
                     </button>
 
                     {showSiteFilter &&
