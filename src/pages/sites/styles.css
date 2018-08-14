@@ -10,7 +10,8 @@
     padding: 10px; }
     .sites-options button .fas {
       font-size: 25px;
-      color: #fff; }
+      color: #fff;
+      text-shadow: 0 0 5px rgba(0, 0, 0, 0.5); }
     .sites-options button > :nth-child(2) {
       color: #fff;
       position: absolute;
