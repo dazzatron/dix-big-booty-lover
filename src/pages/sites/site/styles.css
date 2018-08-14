@@ -6,6 +6,8 @@
   @media (min-width: 800px) {
     .site {
       border: none; } }
+  .site p {
+    max-width: 400px; }
   .site > :first-child {
     padding: 10vh 5vw;
     align-self: center;

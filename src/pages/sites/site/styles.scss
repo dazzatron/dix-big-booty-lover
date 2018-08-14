@@ -9,6 +9,10 @@
         border: none;
     }
 
+    p {
+        max-width: 400px;
+    }
+
     > :first-child {
         padding: 10vh 5vw;
         align-self: center;

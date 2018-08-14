@@ -3,7 +3,7 @@ import './styles.css';
 
 class SiteImages extends Component {
 
-    constructor () {
+    constructor() {
 
         super();
 
@@ -14,43 +14,40 @@ class SiteImages extends Component {
 
     }
 
-    handleNext () {
-        const active = this.state.active;
-        this.setState({ active: active+1 });
+    handleNext() {
+        this.setState((prevState) => ({ active: prevState.active + 1 }));
         this.resetTimer();
     }
 
-    handlePrevious () {
-        const active = this.state.active;
-        this.setState({ active: active-1 });
+    handlePrevious() {
+        this.setState((prevState) => ({ active: prevState.active - 1 }));
         this.resetTimer();
     }
 
-    componentDidMount () {
+    componentDidMount() {
 
         if (this.props.images.length > 1) {
-            this.resetTimer(); 
+            this.resetTimer();
             this.setState({ showArrows: true })
         }
-        
+
     }
 
-    componentWillUnmount () {
+    componentWillUnmount() {
         this.cancelTimer();
     }
 
-    resetTimer () {
+    resetTimer() {
 
         this.cancelTimer();
-    
+
         this.timer = setInterval(() => {
-            const active = this.state.active;
-            this.setState({ active: active+1 });
+            this.setState((prevState) => ({ active: prevState.active + 1 }));
         }, 5000)
 
     }
 
-    cancelTimer () {
+    cancelTimer() {
         clearInterval(this.timer);
     }
 
@@ -65,20 +62,20 @@ class SiteImages extends Component {
 
                 <figure className='site-images'>
 
-                    { images.map((image, i) => 
+                    {images.map((image, i) =>
 
-                        <img 
-                            className={ i === Math.abs(active % images.length) ? 'active' : '' } 
-                            key={i} 
-                            src={image} 
-                            alt={alt + ' ' + (i+1)} />
+                        <img
+                            className={i === Math.abs(active % images.length) ? 'active' : ''}
+                            key={i}
+                            src={image}
+                            alt={alt + ' ' + (i + 1)} />
 
                     )}
 
-                    { showArrows &&
+                    {showArrows &&
 
                         <Fragment>
-                            
+
                             <button onClick={() => this.handleNext()} className='site-images-next'>
                                 <span className='fas fa-angle-left' />
                             </button>
