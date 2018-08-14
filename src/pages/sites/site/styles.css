@@ -1,0 +1,61 @@
+.site {
+  display: grid;
+  min-height: 100vh;
+  overflow: hidden;
+  border-bottom: 40px solid #fff; }
+  @media (min-width: 800px) {
+    .site {
+      border: none; } }
+  .site > :first-child {
+    padding: 10vw 5vw;
+    align-self: center;
+    transform: skewY(-5deg); }
+  .site > :last-child {
+    box-shadow: 5px 0 2.5px rgba(202, 94, 94, 0.25) inset;
+    display: grid;
+    align-content: center;
+    position: relative;
+    z-index: 0; }
+    .site > :last-child:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: -1; }
+  .site:nth-of-type(odd) {
+    background: #111;
+    color: #fff; }
+    .site:nth-of-type(odd) > :last-child:after {
+      background: linear-gradient(to left, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%); }
+    .site:nth-of-type(odd) .site-tech-bar:before {
+      background: linear-gradient(to right, #111111 0%, rgba(17, 17, 17, 0) 100%); }
+    @media (min-width: 800px) {
+      .site:nth-of-type(odd) {
+        grid-template-columns: 5fr 3fr; }
+        .site:nth-of-type(odd) > :first-child {
+          padding-right: 15vw; }
+        .site:nth-of-type(odd) .site-images {
+          margin-left: -10vw;
+          padding-right: 5vw; } }
+  .site:nth-of-type(even) {
+    background: #fff;
+    color: #333; }
+    .site:nth-of-type(even) a {
+      color: #333; }
+    .site:nth-of-type(even) > :last-child {
+      box-shadow: -5px 0 2.5px rgba(0, 0, 0, 0.25) inset; }
+      .site:nth-of-type(even) > :last-child:after {
+        background: linear-gradient(to right, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%); }
+    .site:nth-of-type(even) .site-tech-bar:before {
+      background: linear-gradient(to right, white 0%, rgba(255, 255, 255, 0) 100%); }
+    @media (min-width: 800px) {
+      .site:nth-of-type(even) {
+        grid-template-columns: 3fr 5fr; }
+        .site:nth-of-type(even) > :first-child {
+          order: 2;
+          padding-left: 15vw; }
+        .site:nth-of-type(even) .site-images {
+          margin-left: 10vw;
+          padding-left: 5vw; } }

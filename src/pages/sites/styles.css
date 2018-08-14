@@ -1,0 +1,29 @@
+.sites-options {
+  position: fixed;
+  right: 10px;
+  top: 10px;
+  z-index: 1;
+  color: #fff; }
+  .sites-options button {
+    height: 50px;
+    width: 50px;
+    padding: 10px; }
+    .sites-options button .fas {
+      font-size: 25px;
+      color: #fff; }
+    .sites-options button.active {
+      background: #666; }
+
+.sites-filter {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 10px 25px;
+  background: #666;
+  padding: 10px;
+  box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.25);
+  max-width: calc(100vw - 30px);
+  min-width: 33.333vw;
+  font-size: 13px; }
