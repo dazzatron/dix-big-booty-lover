@@ -3,9 +3,7 @@ import './styles.css';
 import SiteImages from '../site-images/';
 import Techs from '../techs/';
 
-const Site = (props) => {
-
-    const { site } = props;
+const Site = ({ site }) => {
 
     return (
 

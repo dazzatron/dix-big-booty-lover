@@ -1,11 +1,7 @@
 import React from 'react';
 import './styles.css';
 
-// todo: proptypes
-
-const Techs = (props) => {
-
-    const { background, techs } = props;
+const Techs = ({ background, techs }) => {
 
     return (
 

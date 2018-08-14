@@ -113,7 +113,7 @@ export default [{
             label: "Redux",
             percentage: 25
         }, {
-            label: "ThreeJS",
+            label: "Three.js",
             percentage: 80
         }, {
             label: "Pixi.js",
@@ -211,7 +211,7 @@ export default [{
             label: "Knockout.js",
             percentage: 100
         }, {
-            label: "Javascript",
+            label: "JavaScript",
             percentage: 50
         }, {
             label: "Jquery",
