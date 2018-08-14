@@ -23,6 +23,7 @@ class Sites extends Component {
         this.setState((prevState) => ({ showSiteFilter: !prevState.showSiteFilter }));
     }
 
+    // todo: https://medium.com/@baphemot/understanding-reactjs-setstate-a4640451865b
     handleToggleSiteFilter(e) {
         const { siteFilters } = this.state;
         const value = e.target.value;
