@@ -32,9 +32,9 @@ class Site extends Component {
 
                 <article style={{ backgroundColor: site.background }}>
 
-                    {site.images &&
+                    {site.images && site.images.length ?
                         <SiteImages images={site.images} alt={site.name} />
-                    }
+                    : undefined }
 
                 </article>
 

@@ -87,12 +87,10 @@ class Sites extends Component {
                 <div className='sites-options'>
 
                     <button onClick={() => this.handleSort()} title='sort sites'>
-                        {/* <img src={reversed ? sortReverse : sort} alt='sort sites' /> */}
                         <span className={ reversed ? 'fas fa-sort-amount-down' : 'fas fa-sort-amount-up' } />
                     </button>
 
                     <button className={showSiteFilter ? 'active' : ''} onClick={(e) => this.handleToggleSiteFilterMenu(e)} title='filter sites'>
-                        {/* <img src={showSiteFilter ? cancel : filter} alt='filter sites' /> */}
                         <span className={ showSiteFilter ? 'fas fa-times' : 'fas fa-filter' } />
                     </button>
 
