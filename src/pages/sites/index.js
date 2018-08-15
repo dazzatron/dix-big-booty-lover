@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import Site from './site/';
 import SITES from '../../data/sites.js';
 import './styles.css';
@@ -14,7 +14,8 @@ class Sites extends Component {
         ))].sort();
 
         this.state = {
-            siteFilters: []
+            siteFilters: [],
+            sites: SITES
         };
 
     }
@@ -27,28 +28,53 @@ class Sites extends Component {
 
         const value = e.target.value;
 
-        this.setState((prevState) => ({ 
-            siteFilters: prevState.siteFilters.includes(value) ? 
-            prevState.siteFilters.filter(siteFilter => siteFilter !== value) : 
-            [...prevState.siteFilters, value] 
+        this.setState((prevState) => ({
+            siteFilters: prevState.siteFilters.includes(value) ?
+                prevState.siteFilters.filter(siteFilter => siteFilter !== value) :
+                [...prevState.siteFilters, value]
         }));
 
     }
 
     handleSort() {
-        this.setState((prevState) => ({ reversed: !prevState.reversed }));
+
+        this.setState((prevState) => ({
+            reversed: !prevState.reversed
+        }));
+
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+
+        if (prevState.reversed !== this.state.reversed) {
+
+            this.setState({
+                sites: this.state.reversed ? [...this.state.sites].reverse() : [...this.state.sites]
+            })
+
+        }
+
+        if (prevState.siteFilters !== this.state.siteFilters) {
+
+            this.setState({
+
+                sites: this.state.siteFilters.length ? 
+                    SITES.filter(site => site.techs.find(tech => this.state.siteFilters.includes(tech.label))) : 
+                    SITES
+
+            })
+
+        }
+
     }
 
     render() {
 
-        const { reversed, showSiteFilter, siteFilters } = this.state;
-
-        let sites = reversed ? [...SITES].reverse() : [...SITES];
-        sites = siteFilters.length ? sites.filter(site => site.techs.find(tech => siteFilters.includes(tech.label))) : sites;
+        const { reversed, showSiteFilter, siteFilters, sites } = this.state;
 
         return (
 
-            <div>
+            <Fragment>
 
                 <div className='sites-options'>
 
@@ -57,13 +83,8 @@ class Sites extends Component {
                     </button>
 
                     <button className={showSiteFilter ? 'active' : ''} onClick={() => this.handleToggleSiteFilterMenu()} title='filter sites'>
-
                         <span className={showSiteFilter ? 'fas fa-times' : 'fas fa-filter'} />
-
-                        {!showSiteFilter && siteFilters.length ?
-                            <span>{siteFilters.length}</span>
-                            : undefined}
-
+                        {!showSiteFilter && siteFilters.length ? <span>{siteFilters.length}</span> : undefined}
                     </button>
 
                     {showSiteFilter &&
@@ -74,10 +95,10 @@ class Sites extends Component {
 
                                 <label key={i}>
 
-                                    <input 
-                                        onChange={(e) => this.handleToggleSiteFilter(e)} 
-                                        checked={siteFilters.includes(tech)} 
-                                        type='checkbox' 
+                                    <input
+                                        onChange={(e) => this.handleToggleSiteFilter(e)}
+                                        checked={siteFilters.includes(tech)}
+                                        type='checkbox'
                                         value={tech} />
 
                                     {tech}
@@ -94,19 +115,19 @@ class Sites extends Component {
 
                 {sites.map((site, i) =>
 
-                    <Site 
-                        name={site.name} 
-                        subTitle={site.subTitle} 
-                        techs={site.techs} 
-                        text={site.text} 
-                        background={site.background} 
-                        url={site.url} 
-                        images={site.images} 
+                    <Site
+                        name={site.name}
+                        subTitle={site.subTitle}
+                        techs={site.techs}
+                        text={site.text}
+                        background={site.background}
+                        url={site.url}
+                        images={site.images}
                         key={site.id} />
 
                 )}
 
-            </ div>
+            </ Fragment>
 
         );
 
