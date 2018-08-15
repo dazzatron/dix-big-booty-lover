@@ -23,12 +23,16 @@ class Sites extends Component {
         this.setState((prevState) => ({ showSiteFilter: !prevState.showSiteFilter }));
     }
 
-    // todo: https://medium.com/@baphemot/understanding-reactjs-setstate-a4640451865b
     handleToggleSiteFilter(e) {
-        const { siteFilters } = this.state;
+
         const value = e.target.value;
-        siteFilters.includes(value) ? siteFilters.splice(siteFilters.indexOf(value), 1) : siteFilters.push(value);
-        this.setState({ siteFilters });
+
+        this.setState((prevState) => ({ 
+            siteFilters: prevState.siteFilters.includes(value) ? 
+            prevState.siteFilters.filter(siteFilter => siteFilter !== value) : 
+            [...prevState.siteFilters, value] 
+        }));
+
     }
 
     handleSort() {
@@ -69,8 +73,15 @@ class Sites extends Component {
                             {this.techs.map((tech, i) =>
 
                                 <label key={i}>
-                                    <input onChange={(e) => this.handleToggleSiteFilter(e)} checked={siteFilters.includes(tech)} type='checkbox' value={tech} />
+
+                                    <input 
+                                        onChange={(e) => this.handleToggleSiteFilter(e)} 
+                                        checked={siteFilters.includes(tech)} 
+                                        type='checkbox' 
+                                        value={tech} />
+
                                     {tech}
+
                                 </label>
 
                             )}
@@ -82,7 +93,17 @@ class Sites extends Component {
                 </div>
 
                 {sites.map((site, i) =>
-                    <Site site={site} key={site.id} />
+
+                    <Site 
+                        name={site.name} 
+                        subTitle={site.subTitle} 
+                        techs={site.techs} 
+                        text={site.text} 
+                        background={site.background} 
+                        url={site.url} 
+                        images={site.images} 
+                        key={site.id} />
+
                 )}
 
             </ div>

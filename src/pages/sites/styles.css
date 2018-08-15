@@ -11,7 +11,7 @@
     .sites-options button .fas {
       font-size: 25px;
       color: #fff;
-      text-shadow: 0 0 5px rgba(0, 0, 0, 0.5); }
+      text-shadow: 0 0 5px rgba(0, 0, 0, 0.75); }
     .sites-options button > :nth-child(2) {
       color: #fff;
       position: absolute;
