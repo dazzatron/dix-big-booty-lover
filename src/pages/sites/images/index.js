@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import './styles.css';
 
-class SiteImages extends Component {
+class Images extends Component {
 
     constructor() {
 
@@ -98,4 +98,4 @@ class SiteImages extends Component {
 
 }
 
-export default SiteImages;
+export default Images;

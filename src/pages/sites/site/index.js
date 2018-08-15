@@ -1,7 +1,18 @@
 import React from 'react';
-import './styles.css';
-import SiteImages from '../site-images/';
+import PropTypes from 'prop-types';
+import Images from '../images/';
 import Techs from '../techs/';
+import './styles.css';
+
+const propTypes = {
+    name: PropTypes.string,
+    subTitle: PropTypes.string,
+    techs: PropTypes.array,
+    background: PropTypes.string,
+    text: PropTypes.string,
+    url: PropTypes.string,
+    images: PropTypes.array
+}
 
 const Site = ({ name, subTitle, techs, background, text, url, images }) => {
 
@@ -12,17 +23,13 @@ const Site = ({ name, subTitle, techs, background, text, url, images }) => {
             <article>
                 { name && <h1>{name}</h1> }
                 { subTitle && <h2>{subTitle}</h2> }
-                { techs && <Techs techs={techs} background={background} /> }
+                { techs && !!techs.length && <Techs techs={techs} background={background} /> }
                 { text && <p>{text}</p> }
                 { url && <a target='_blank' href={url}>{url}</a> }
             </article>
 
             <article style={{ backgroundColor: background }}>
-
-                {images && images.length ?
-                    <SiteImages images={images} alt={name} />
-                : undefined}
-
+                { images && !!images.length && <Images images={images} alt={name} /> }
             </article>
 
         </ section>
@@ -30,5 +37,7 @@ const Site = ({ name, subTitle, techs, background, text, url, images }) => {
     );
 
 }
+
+Site.propTypes = propTypes;
 
 export default Site;
