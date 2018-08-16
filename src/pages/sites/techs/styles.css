@@ -19,7 +19,7 @@
   .site-tech-bar:before {
     content: "";
     position: absolute;
-    top: 0;
+    top: -1px;
     left: 0;
-    bottom: 0;
+    bottom: -1px;
     right: 0; }

@@ -30,16 +30,15 @@
     position: absolute;
     top: 50%;
     text-align: center;
-    padding: 20px; }
+    padding: 20px;
+    transform: translate3d(0, -50%, 0); }
 
 .site-images-next {
   left: 0; }
   .site-images-next .fas {
-    left: 0;
-    transform: translate3d(0, -50%, 0); }
+    left: 0; }
 
 .site-images-previous {
   right: 0; }
   .site-images-previous .fas {
-    right: 0;
-    transform: translate3d(0, -50%, 0); }
+    right: 0; }

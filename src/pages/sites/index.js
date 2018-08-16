@@ -87,7 +87,8 @@ class Sites extends Component {
 
                 { SITES
                     .filter(site => siteFilters.length ? site.techs.find(tech => this.state.siteFilters.includes(tech.label)) : SITES)
-                    .sort((a, b) => reversed ? b.id - a.id : a.id - b.id).map((site) =>
+                    .sort((a, b) => reversed ? b.id - a.id : a.id - b.id)
+                    .map(site =>
 
                         <Site
                             name={site.name}
